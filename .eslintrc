@@ -11,6 +11,9 @@
     "rules": {
         "comma-spacing": [1, { "before": false, "after": true }],
         "comma-style": [1, "first"],
-        "no-unused-vars":"warn"
+        "no-unused-vars":"warn",
+        "space-before-blocks":"warn",
+        "no-shadow":"error",
+        "object-curly-spacing":["error","always"]
     }
 }
