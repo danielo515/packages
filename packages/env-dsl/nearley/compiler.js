@@ -13,7 +13,7 @@ const extract = ({ path }) => ` process.env['${path}'] `
 const templateStr = varName => `\${${varName}}`
 // const assign = base => x => Object.assign({}, base, x )
 // const getWords = str => tail( str.match(/[a-z_]*/ig) )
-const templateExports = (names) => `module.exports = {${ names }}`
+const templateExports = (names) => `module.exports = { ${ names.join(', ') } }`
 const processString = seen => ({ raw, val }) => {
     if (raw) {
         return `'${val}'`
@@ -61,7 +61,8 @@ const compile = (trees) => {
           map(compileExpression)
           , map(joinWith(''))
           , joinWith(';\n')
-          , concat(__, `\n${templateExports(symbols)};`)
+          , concat(__, `\n${templateExports(symbols)};\n`)
+          , concat(`'use strict;'\n`)
     ])(trees)
 }
 

@@ -22,6 +22,6 @@ readFile(require.resolve('./example'), 'utf8')
     logDeep(parser.results); // [[[[ "foo" ],"\n" ]]]
     console.log('\n\n--');
     const output = compiler(parser.results[0]);
-    writeFile('env.js', output, 'utf8')
+    writeFile('env-test.js', output, 'utf8')
     .then(() => console.log('Compilation Complete! \n', output))
 });
