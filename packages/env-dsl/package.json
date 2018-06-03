@@ -14,6 +14,7 @@
     "chevrotain": "^3.3.0"
   },
   "devDependencies": {
-    "nearley": "^2.13.0"
+    "nearley": "^2.13.0",
+    "sanctuary": "^0.14.1"
   }
 }

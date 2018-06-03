@@ -1,0 +1,16 @@
+{
+    "globals": {
+        "jest":true,
+        "it":true,
+        "describe":true,
+        "expect":true
+    },
+    "parserOptions": {
+        "ecmaVersion": 8
+    },
+    "rules": {
+        "comma-spacing": [1, { "before": false, "after": true }],
+        "comma-style": [1, "first"],
+        "no-unused-vars":"warn"
+    }
+}
