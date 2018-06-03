@@ -2,26 +2,17 @@
 
 const nearley = require("nearley");
 const grammar = require("./grammar.js");
-const { readdir, writeFile:_writeFile, readFile: _readFile } = require('fs');
-const { promisify } = require('util');
-const writeFile = promisify(_writeFile);
-const readDir = promisify(readdir);
-const readFile = promisify(_readFile);
-const { logDeep } = require('../util');
 const compiler = require('./compiler');
+const { logDeep } = require('../util');
 
 // Create a Parser object from our grammar.
 const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
 
 // Parse something!
-readFile(require.resolve('./example'), 'utf8')
-.then((content) => {
+module.exports = (content) => {
 
     parser.feed(content);
     // parser.results is an array of possible parsings.
     logDeep(parser.results); // [[[[ "foo" ],"\n" ]]]
-    console.log('\n\n--');
-    const output = compiler(parser.results[0]);
-    writeFile('env-test.js', output, 'utf8')
-    .then(() => console.log('Compilation Complete! \n', output))
-});
+    return compiler(parser.results[0]);
+};
