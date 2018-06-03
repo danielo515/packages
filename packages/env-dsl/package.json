@@ -1,0 +1,19 @@
+{
+  "name": "env-dsl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "nearleyc ./nearley/gramar.ne -o ./nearley/grammar.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chevrotain": "^3.3.0"
+  },
+  "devDependencies": {
+    "nearley": "^2.13.0"
+  }
+}
