@@ -3,11 +3,18 @@
  * READY FOR BE COMPILED WITH PARCEL
  */
 
+
+const fs = require('fs');
+const example = fs.readFileSync(__dirname + '/../nearley/example', 'utf8');
+
+
 const compile = require('../nearley/index');
 const output = document.getElementById('output');
 const input = document.getElementById('input');
 const errorsDom = document.getElementById('compile-errors');
 const compileButton = document.getElementById('compile');
+
+input.innerHTML = example;
 
 const outputEditor = CodeMirror.fromTextArea(output, {
      lineNumbers: true

@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="./styles.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/codemirror.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/codemirror.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/theme/abcdf.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/theme/abcdef.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/mode/javascript/javascript.min.js"></script>
 </head>
 
@@ -13,22 +13,22 @@
     <button id="compile">Compile!</button>
   </nav>
   <section id="body">
+
     <div id="left-column">
-      <textarea name="input" id="input" cols="30" rows="10">
-PORT       = PORT      | 3000                   :: Int
-HOST       = HOST      | 'satan.com'            :: String
-DB_URL     = URL       | 'http://HOST:PORT'     :: String
-      </textarea>
+      <textarea id="input"></textarea>
     </div>
 
     <div id="right-column">
       <textarea id="output"></textarea>
     </div>
+
   </section>
   <section>
-    <div><textarea name="errors" id="compile-errors"></textarea></div>
+    <div>
+      <textarea name="errors" id="compile-errors"></textarea>
+    </div>
   </section>
-  <script src="./index.js"></script>
+  <script src="./main.js"></script>
 </body>
 
 </html>
