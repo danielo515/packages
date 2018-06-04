@@ -4,8 +4,24 @@
  */
 
 const compile = require('../nearley/index');
-const example = `PORT       = PORT      | 3000                   :: Int                                
-HOST       = HOST      | 'satan.com'            :: String   
-DB_URL     = URL       | 'http://HOST:PORT'     :: String   
-`;
-console.log(compile(example));
+const output = document.getElementById('output');
+const input = document.getElementById('input');
+const compileButton = document.getElementById('compile');
+
+const outputEditor = CodeMirror.fromTextArea(output, {
+     lineNumbers: true
+    , mode:  "javascript"
+});
+
+const inputCodeMirror = CodeMirror.fromTextArea(input, {
+    lineNumbers: true
+    , mode:  "javascript"
+});
+
+const compileAction = () => {
+    const inputText = inputCodeMirror.getValue()
+    outputEditor.setValue(compile(inputText))
+}
+
+compileButton.addEventListener('click', compileAction);
+compileAction();
