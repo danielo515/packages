@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node nearley/cli.js",
     "build": "nearleyc ./nearley/gramar.ne -o ./nearley/grammar.js",
-    "playground-build": "parcel build pages/index.html --public-url ./",
+    "playground-build": "rm -rf ./dist && parcel build pages/index.html --public-url ./",
     "playground-publish": "gh-pages -d dist -r https://github.com/danielo515/env-dsl.git",
     "playground":"npm run playground-build && npm run playground-publish"
   },

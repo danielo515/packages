@@ -1,5 +1,5 @@
-PORT       = PORT      | 3000                   :: Int                                
-HOST       = HOST      | 'satan.com'            :: String   
+HOST                   | 'satan.com'            :: String   
+PORT                   | 3000                   :: Int                                
 DB_URL     = URL       | 'http://HOST:PORT'     :: String   
 SSL        = USE_SSL   | yes                    :: Boolean  
 USER       = USER_INFO | '{ name: "noname" }'   :: JSON     

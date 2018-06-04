@@ -20,16 +20,15 @@
 
 PROGRAM 	-> LINE (ln LINE {% nth(1) %}):* {% ([a,b]) => [a,...b] %}
 
-LINE 		-> NAME _ 
-			   "="  _
+LINE 		-> NAME 
 			   DECLARATION _ 
 			   "::" _ 
 			   TYPE __ 				
-			   {% ([[name],,,, body,,,,[coerceTo] ]) => ({type:'declaration', name, body, coerceTo }) %}
+			   {% ([name, {path, defaults} ,,,,[coerceTo] ]) => ({type:'declaration', name, body: { path: (path || name ), defaults }, coerceTo }) %}
 
-NAME        -> WORD
-DECLARATION -> WORD DEFAULT:* 		{% ([path, defaults]) => ({ path, defaults }) %}
-DEFAULT     -> _ "|" _ VALUE 		{% pipe(nth(3),([val]) => option({val})) %}
+NAME        -> WORD {% id %}
+DECLARATION -> (_ "=" _ WORD {% nth(3) %}):? DEFAULT:* 		{% ([path, defaults]) => ({ path, defaults }) %}
+DEFAULT     -> _ "|" _ VALUE 		{% pipe( log, nth(3),([val]) => option({val})) %}
 VALUE       -> BOOL | NUM | STR | EXPRESSION
 
 
