@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "nearleyc ./nearley/gramar.ne -o ./nearley/grammar.js"
+    "build": "nearleyc ./nearley/gramar.ne -o ./nearley/grammar.js",
+    "build-playground": "parcel build pages/index.html",
+    "publish-playground": "gh-pages -d dist -r ${npm_package_repository_url}"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +15,12 @@
   "dependencies": {
     "chevrotain": "^3.3.0"
   },
+  "repository": {
+    "url": "https://github.com/danielo515/env-dsl.git",
+    "type": "git"
+  },
   "devDependencies": {
+    "gh-pages": "^1.2.0",
     "nearley": "^2.13.0",
     "sanctuary": "^0.14.1"
   }
