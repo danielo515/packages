@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "nearleyc ./nearley/gramar.ne -o ./nearley/grammar.js",
-    "build-playground": "parcel build pages/index.html",
-    "publish-playground": "gh-pages -d dist -r ${npm_package_repository_url}"
+    "build-playground": "parcel build pages/index.html --public-url ./",
+    "publish-playground": "gh-pages -d dist -r https://github.com/danielo515/env-dsl.git"
   },
   "keywords": [],
   "author": "",

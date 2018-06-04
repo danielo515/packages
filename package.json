@@ -19,6 +19,10 @@
   "dependencies": {
     "lerna": "^2.11.0"
   },
+  "repository": {
+    "url": "https://github.com/danielo515/packages.git",
+    "type": "git"
+  },
   "devDependencies": {
     "commitizen": "^2.9.6",
     "cz-lerna-changelog": "^1.2.1",
