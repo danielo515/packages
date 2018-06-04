@@ -6,7 +6,15 @@
 
 #right-column {
     width: 50%;
-    float: left;
+    display: inline-block;
+}
+
+html {
+    background-color: #0f0f0f;
+}
+
+#compile-errors {
+    display: none;
 }
 
 #compile {

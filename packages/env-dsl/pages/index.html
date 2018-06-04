@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="./styles.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/codemirror.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/codemirror.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/theme/xq-dark.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/theme/abcdf.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/mode/javascript/javascript.min.js"></script>
 </head>
 
@@ -24,6 +24,9 @@ DB_URL     = URL       | 'http://HOST:PORT'     :: String
     <div id="right-column">
       <textarea id="output"></textarea>
     </div>
+  </section>
+  <section>
+    <div><textarea name="errors" id="compile-errors"></textarea></div>
   </section>
   <script src="./index.js"></script>
 </body>
