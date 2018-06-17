@@ -17,7 +17,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "lerna": "^2.11.0"
+    "@babel/cli": "^7.0.0-beta.51",
+    "@babel/core": "^7.0.0-beta.51",
+    "babel-plugin-macros": "^2.2.2",
+    "babel-plugin-pipe-operator-curry": "^1.0.2",
+    "lerna": "^2.11.0",
+    "param.macro": "^2.1.0-beta.1"
   },
   "repository": {
     "url": "https://github.com/danielo515/packages.git",
