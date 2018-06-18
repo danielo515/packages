@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node nearley/cli.js",
-    "build": "nearleyc ./nearley/gramar.ne -o ./nearley/grammar.js",
+    "build": "nearleyc ./src/gramar.ne -o ./src/grammar.js",
     "playground-build": "rm -rf ./dist && parcel build pages/index.html --public-url ./",
     "playground-publish": "gh-pages -d dist -r https://github.com/danielo515/env-dsl.git",
     "playground":"npm run playground-build && npm run playground-publish"
