@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "bootstrap": "lerna bootstrap",
     "clean": "lerna clean",
-    "init": "lerna init --independient",
+    "compile": "NODE_ENV=production lerna exec --parallel -- babel src -d dist",
     "build": "lerna run build",
     "cm": "git-cz",
     "commitmsg": "validate-commit-msg",
