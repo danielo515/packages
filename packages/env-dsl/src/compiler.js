@@ -1,4 +1,5 @@
 'use strict';
+import { it } from 'param.macro'
 
 const { map, toLower, prop, joinWith, pipe, concat, __ } = require('sanctuary');
 
@@ -8,12 +9,12 @@ const runtime = {
     , Integer: ''
 };
 
-const declare = ({ name }) => `const ${name} = `
+const declare = `const ${it.name} = `
 const extract = ({ path }) => ` process.env['${path}'] `
-const templateStr = varName => `\${${varName}}`
+const templateStr = `\${${it}}`
 // const assign = base => x => Object.assign({}, base, x )
 // const getWords = str => tail( str.match(/[a-z_]*/ig) )
-const templateExports = (names) => `module.exports = { ${ names.join(', ') } }`
+const templateExports = `module.exports = { ${ it.join(', ') } }`
 const processString = seen => ({ raw, val }) => {
     if (raw) {
         return `'${val}'`

@@ -5,10 +5,10 @@
 
 
 const fs = require('fs');
-const example = fs.readFileSync(__dirname + '/../nearley/example', 'utf8');
+const example = fs.readFileSync(__dirname + '/../src/example', 'utf8');
 
 
-const compile = require('../nearley/index');
+const compile = require('../lib/index');
 const output = document.getElementById('output');
 const input = document.getElementById('input');
 const errorsDom = document.getElementById('compile-errors');

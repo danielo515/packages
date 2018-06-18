@@ -5,7 +5,9 @@
         "describe":true,
         "expect":true
     },
+
     "parserOptions": {
+        "sourceType": "module",
         "ecmaVersion": 8
     },
     "rules": {
