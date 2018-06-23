@@ -1,0 +1,35 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/codemirror.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/codemirror.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/theme/abcdef.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/mode/javascript/javascript.min.js"></script>
+</head>
+
+<body>
+  <nav id="header">
+    <button id="compile">Compile!</button>
+  </nav>
+  <section id="body">
+
+    <div id="left-column">
+      <textarea id="input"></textarea>
+    </div>
+
+    <div id="right-column">
+      <textarea id="output"></textarea>
+    </div>
+
+  </section>
+  <section>
+    <div>
+      <textarea name="errors" id="compile-errors"></textarea>
+    </div>
+  </section>
+  <script src="./main.js"></script>
+</body>
+
+</html>

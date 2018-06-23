@@ -1,0 +1,33 @@
+
+#left-column {
+    width: 50%;
+    float: left;
+}
+
+#right-column {
+    width: 50%;
+    display: inline-block;
+}
+
+html {
+    background-color: #0f0f0f;
+}
+
+#compile-errors {
+    display: none;
+}
+
+#compile {
+    border: 0px;
+    background-color: rgb(114, 194, 34);
+    color: #FFF;
+    font-size: 2rem;
+}
+
+#header {
+    padding: .5rem;
+}
+
+#input {
+    display: none;
+}
