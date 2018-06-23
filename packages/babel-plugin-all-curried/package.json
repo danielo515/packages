@@ -1,0 +1,32 @@
+{
+  "name": "babel-plugin-all-curried",
+  "version": "1.0.0",
+  "description": "Call all functions like they were curried",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "node test/example.js",
+    "pretest": "lsc -b -c -m linked test/example",
+    "build": "lsc -b -c -o lib index",
+    "watch": "lsc -b -c -w -o lib index",
+    "babel": "NODE_ENV=production babel src -d lib"
+  },
+  "keywords": [
+    "babel-plugin", "currying"
+  ],
+  "author": "Danielo Rodríguez Rivero",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "repository": {
+    "url": "https://github.com/danielo515/fucc-script.git",
+    "type": "git"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "livescript":"^1.5.0",
+    "livescript-next": "^0.0.4"
+  }
+}
