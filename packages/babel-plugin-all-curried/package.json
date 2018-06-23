@@ -10,6 +10,7 @@
     "test": "node test/example.js",
     "pretest": "lsc -b -c -m linked test/example",
     "build": "lsc -b -c -o lib index",
+    "prepublish": "npm run build",
     "watch": "lsc -b -c -w -o lib index",
     "babel": "NODE_ENV=production babel src -d lib"
   },
