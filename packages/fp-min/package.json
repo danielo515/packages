@@ -1,0 +1,29 @@
+{
+  "name": "fp-min",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "npm run generate",
+    "pretest": "npm run build",
+    "build": "NODE_ENV=production lsc compile",
+    "start": "lsc execute"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "repository": {
+    "url": "https://github.com/danielo515/fucc-script.git",
+    "type": "git"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "gh-pages": "^1.2.0",
+    "livescript":"^1.5.0",
+    "livescript-next": "^0.0.4",
+    "babel-plugin-all-curried":"1.1.0",
+    "babel-plugin-curry-all":"1.1.0"
+  }
+}
