@@ -1,4 +1,4 @@
-log = -> console.log(it)
+# log = -> console.log(it)
 tail = -> it.slice 1
 head = -> it.slice 0 1
 expandParams = (t, args, body, async) ->
