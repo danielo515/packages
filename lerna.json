@@ -4,6 +4,6 @@
   "packages": [
     "packages/*"
   ],
-  "registry":"https://registry.npmjs.org",
-  "version": "0.0.0"
+  "registry": "https://registry.npmjs.org",
+  "version": "1.1.0"
 }
