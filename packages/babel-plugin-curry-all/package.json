@@ -7,27 +7,31 @@
     "lib"
   ],
   "scripts": {
-    "test": "node test/example.js",
-    "_pretest": "lsc -b -c -m linked test/example",
+    "clean": "rm -rf lib",
+    "test": "lsc test/example",
     "build": "lsc -b -c -o lib index",
-    "prepublish": "npm run build",
-    "watch": "lsc -b -c -w -o lib index",
-    "babel": "NODE_ENV=production babel src -d lib"
+    "build:test": "lsc -b -c -m linked test/example",
+    "prepublish": "npm run clean && npm run build",
+    "watch": "lsc -b -c -w -o lib index"
   },
   "keywords": [
-    "babel-plugin", "currying"
+    "babel-plugin",
+    "currying",
+    "babel",
+    "plugin",
+    "curry",
+    "functional",
+    "fp"
   ],
   "author": "Danielo Rodríguez Rivero",
   "license": "MIT",
-  "dependencies": {
-  },
+  "dependencies": {},
   "repository": {
     "url": "https://github.com/danielo515/fucc-script.git",
     "type": "git"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "livescript":"^1.5.0",
+    "livescript": "^1.5.0",
     "livescript-next": "^0.0.4"
   }
 }
