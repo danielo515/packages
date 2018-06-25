@@ -18,7 +18,7 @@ function pickId
     then it.parent.left
     else it.parent.id
 
-assignFunction = (t) -> (id, body) -> t.assignmentExpression '=', id, body
+# assignFunction = (t) -> (id, body) -> t.assignmentExpression '=', id, body
 
 module.exports = ({types: t}) -> 
     visitor: 
@@ -31,10 +31,10 @@ module.exports = ({types: t}) ->
             {node, parentPath, parent} = path;
             {params, body} = node;
             id = pickId path
+            # log id
             if !id then return
-            # log node
             if params.length > 1 then
-                wrapper = if parent.type == \AssignmentExpression
-                        then assignFunction t
-                        else t.variableDeclarator
-                parentPath.replaceWith wrapper id, transformFunction t, t.functionExpression, id, node
+                # wrapper = if parent.type == \AssignmentExpression
+                #         then assignFunction t
+                #         else t.variableDeclarator
+                path.replaceWith transformFunction t, t.functionExpression, id, node
