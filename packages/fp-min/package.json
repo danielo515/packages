@@ -6,13 +6,14 @@
   "scripts": {
     "test": "npm run generate",
     "pretest": "npm run build",
-    "build": "NODE_ENV=production lsc compile",
+    "build": "NODE_ENV=production babel ./src --extensions '.ls' -d lib",
     "start": "lsc execute"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "sanctuary": "^0.15.0"
   },
   "repository": {
     "url": "https://github.com/danielo515/fucc-script.git",
@@ -20,10 +21,13 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "gh-pages": "^1.2.0",
-    "livescript":"^1.5.0",
-    "livescript-next": "^0.0.4",
-    "babel-plugin-all-curried":"1.1.0",
-    "babel-plugin-curry-all":"1.1.0"
+    "babel-runtime":"^6.26.0",
+    "babel-register": "^6.26.0",
+    "babel-plugin-all-curried": "1.1.0",
+    "babel-plugin-curry-all": "1.1.0",
+    "babel-plugin-transform-es2015-modules-commonjs-simple": "^6.7.4",
+    "babel-preset-stage-0": "^6.24.1",
+    "livescript": "^1.5.0",
+    "livescript-next": "^0.0.4"
   }
 }

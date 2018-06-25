@@ -1,6 +1,4 @@
-
-require! livescript
-babelOptions = parserOpts: parser: \livescript-next
+require \livescript
 delete require.extensions\.ls
-require \babel-register <| babelOptions
-require! \./index.ls
+require \babel-register
+require \./src/index.ls
