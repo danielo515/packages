@@ -1,11 +1,4 @@
-async function sum3(a) {
-    return b => async c => {
-        return a + b + (await c);
-    };
-}
+'use strict';
 
-async function log4(a) {
-    return b => c => async d => {
-        console.log(a, b, (await c), d);
-    };
-}
+const map = fn => arr => arr.map(fn);
+map(i => i + i)([1, 2, 3]);
