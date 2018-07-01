@@ -22,10 +22,8 @@ function pickId
 
 module.exports = ({types: t}) -> 
     visitor: 
-        FunctionDeclaration: (path, state) ->
-            {node:{id}} = path;
+        FunctionDeclaration: ({node:{id}}:path, state) ->
             transformFunction t, t.functionDeclaration, id, path
-        FunctionExpression: (path, state) ->
-            id = pickId path
-            if !id then return
+        FunctionExpression: ({node}:path, state) ->
+            id = node.id ? pickId path
             transformFunction t, t.functionExpression, id, path
