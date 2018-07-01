@@ -1,6 +1,6 @@
 {
   "name": "sanfu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -22,12 +22,12 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-runtime":"^6.26.0",
-    "babel-register": "^6.26.0",
-    "babel-plugin-all-curried": "1.1.0",
-    "babel-plugin-curry-all": "1.1.0",
+    "babel-plugin-all-curried": "^1.2.0",
+    "babel-plugin-curry-all": "^2.0.0",
     "babel-plugin-transform-es2015-modules-commonjs-simple": "^6.7.4",
     "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "babel-runtime": "^6.26.0",
     "livescript": "^1.5.0",
     "livescript-next": "^0.0.4"
   }
