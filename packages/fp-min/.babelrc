@@ -5,7 +5,7 @@
   },
   
   "plugins": [
-    ["transform-es2015-modules-commonjs-simple", {"noMangle":true}],
+    ["transform-es2015-modules-commonjs-simple", {"noMangle":true, "loose":true}],
     "babel-plugin-curry-all",
     "babel-plugin-all-curried"
   ]
