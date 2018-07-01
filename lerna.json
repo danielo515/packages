@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "registry": "https://registry.npmjs.org",
-  "version": "1.1.0",
+  "version": "independent",
   "npmClientArgs": [
     "--no-package-lock",
     "--verbose"

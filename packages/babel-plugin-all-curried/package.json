@@ -8,7 +8,8 @@
   ],
   "scripts": {
     "clean": "rm -rf lib",
-    "test": "lsc test/example",
+    "test": "lab --reporter console --threshold 50 --assert code -P spec -f -T test/transformer --verbose -I __core-js_shared__ test",
+    "test:generate": "lsc test/generate",
     "build": "lsc -b -c -o lib index",
     "build:test": "lsc -b -c -m linked test/example",
     "prepublish": "npm run clean && npm run build",
@@ -32,7 +33,8 @@
     "type": "git"
   },
   "devDependencies": {
-    "livescript": "^1.5.0",
-    "livescript-next": "^0.0.4"
+    "code": "^5.2.0",
+    "lab": "^15.5.0",
+    "livescript": "^1.5.0"
   }
 }
