@@ -28,7 +28,7 @@
   "author": "Danielo Rodríguez Rivero",
   "license": "MIT",
   "repository": {
-    "url": "https://github.com/danielo515/babel-plugin-all-curried.git",
+    "url": "https://github.com/danielo515/packages.git",
     "type": "git"
   },
   "devDependencies": {
