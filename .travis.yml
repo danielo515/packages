@@ -1,0 +1,9 @@
+language: node_js
+cache: yarn
+node_js:
+ - "8.9.0"
+branches:
+  only:
+    - master
+script:
+ - npm run publish -- --yes

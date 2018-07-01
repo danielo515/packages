@@ -4,7 +4,7 @@
   "description": "A monorepo for almost all my npm packages",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "lerna run test",
     "bootstrap": "lerna bootstrap",
     "clean": "lerna clean",
     "compile-all": "NODE_ENV=production lerna exec --parallel -- babel src -d lib",
@@ -12,7 +12,7 @@
     "build": "lerna run build",
     "cm": "git-cz",
     "commitmsg": "validate-commit-msg",
-    "publish": "lerna publish --conventional-commits --message 'chore: Publish'"
+    "publish": "lerna publish --conventional-commits --message 'chore: Publish [skip ci]'"
   },
   "keywords": [],
   "author": "",

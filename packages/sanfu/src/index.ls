@@ -8,6 +8,8 @@ function push arr, x
     arr.push x
     arr
 
+objAcc = (init, o) -> {...init, ...o}
+
 function pipeAcc fns
     acc = push []
     reducer = (p, f) -> p.then f . acc
