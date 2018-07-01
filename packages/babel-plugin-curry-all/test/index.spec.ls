@@ -3,7 +3,7 @@ require! {
   path
   code: {expect}
   'babel-core': { transformFileSync }
-  \../lib
+  \../lib : plugin
   lab: Lab
 }
 
@@ -24,7 +24,7 @@ describe 'Babel plugin curry all', ->
 
       fixtureDir = path.join fixturesDir, caseName
       actualPath = path.join fixtureDir, 'actual.js'
-      actual = transformFileSync(actualPath).code;
+      actual = transformFileSync(actualPath,  plugins: [plugin]).code;
 
       expected = fs.readFileSync(
         path.join fixtureDir, 'expected.js'
