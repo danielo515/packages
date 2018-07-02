@@ -14,7 +14,7 @@ commit_website_files() {
 
 upload_files() {
   git remote add travis https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG} # > /dev/null 2>&1
-  git push --follow-tags --quiet -u travis HEAD 
+  git push --follow-tags --quiet travis $TRAVIS_BRANCH 
 }
 
 setup_git
