@@ -8,7 +8,5 @@ branches:
 script:
   - cp _npmrc .npmrc
   - npm run publish -- --yes --skip-git
-jobs:
-  include:
-    - stage: github push
-      script: ./bin/github.sh
+after_success:
+  - bin/github.sh
