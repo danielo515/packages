@@ -9,6 +9,7 @@
     "clean": "lerna clean",
     "compile-all": "NODE_ENV=production lerna exec --parallel -- babel src -d lib",
     "postinstall": "npm run bootstrap",
+    "npm-setup":"lerna exec cp ../../_npmrc .npmrc",
     "build": "lerna run build",
     "cm": "git-cz",
     "commitmsg": "validate-commit-msg",

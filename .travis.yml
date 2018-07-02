@@ -6,7 +6,7 @@ branches:
   only:
     - master
 script:
-  - cp _npmrc .npmrc
+  - npm run npm-setup
   - npm run publish -- --yes --skip-git
 after_success:
   - bin/github.sh
