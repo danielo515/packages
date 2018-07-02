@@ -6,4 +6,9 @@ branches:
   only:
     - master
 script:
- - npm run publish -- --yes --skip-git
+  - cp _npmrc .npmrc
+  - npm run publish -- --yes --skip-git
+jobs:
+  include:
+    - stage: github push back
+      script: ./bin/github.sh
