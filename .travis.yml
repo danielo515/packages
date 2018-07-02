@@ -6,4 +6,4 @@ branches:
   only:
     - master
 script:
- - npm run publish -- --yes
+ - npm run publish -- --yes --skip-git
