@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/danielo515/packages/compare/babel-plugin-all-curried@1.2.0...babel-plugin-all-curried@2.0.0) (2018-07-02)
+
+
+### Features
+
+* **calling:** added recursive algorithm for detecting built-in methods ([0181dba](https://github.com/danielo515/packages/commit/0181dba))
+* **compilation:** ignore also built-in functions ([2568b87](https://github.com/danielo515/packages/commit/2568b87))
+* **compilation:** ignore javascript methods of console and Math ([adfbae5](https://github.com/danielo515/packages/commit/adfbae5))
+
+
+### BREAKING CHANGES
+
+* **compilation:** setInterval, setImmediate and setTimeout are not curried anymore
+* **compilation:** Math and console methods calls are no longer curried
+
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2018-07-01)
 

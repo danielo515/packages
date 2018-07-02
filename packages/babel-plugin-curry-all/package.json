@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-curry-all",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Call all functions like they were curried",
   "main": "lib/index.js",
   "files": [
