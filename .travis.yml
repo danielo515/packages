@@ -10,5 +10,5 @@ script:
   - npm run publish -- --yes --skip-git
 jobs:
   include:
-    - stage: github push back
+    - stage: github push
       script: ./bin/github.sh
