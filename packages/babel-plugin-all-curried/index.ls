@@ -4,8 +4,8 @@ expandArgs = (t, parent, args) ->
 
 module.exports = ({types: t}) -> 
     isBuiltIn = ->
-        | t.isMemberExpression it => it.object.name in ['console','Math']
-        | _ => it.name in ['setTimeout','setInterval','setImmediate']
+        | t.isMemberExpression it => isBuiltIn it.object
+        | _ => it.name in ['setTimeout','setInterval','setImmediate','console','Math','Object']
     
     visitor: CallExpression: 
         ({node}:path, state) ->

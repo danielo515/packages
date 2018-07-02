@@ -7,3 +7,5 @@ Math.min(1,2,3)
 setTimeout( x => x, 1200, 'Identity');
 setInterval( x => x, 1200, 'Identity');
 setImmediate( x => x,'Do it later');
+
+Object.prototype.hasOwnProperty.call(source,key);

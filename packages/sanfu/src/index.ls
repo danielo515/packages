@@ -33,4 +33,3 @@ module.exports =
     inspect: def \sanfu/inspect {} [$.String, $.AnyFunction, $.Any, $.Any] inspect
     pipeAcc: def \sanfu/promise/pipeAcc {} [($.Array $.AnyFunction), $.AnyFunction] pipeAcc
     push: def \sanfu/push {} [($.Array $.Any), $.Any] push
-
