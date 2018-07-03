@@ -4,6 +4,7 @@ require! {
     fluture: {node, encaseN2, encaseN3, encaseN, parallel}
     fs: {readdir, readFile, writeFile, mkdir}
     path: {join}
+    \partial.lenses : {get,prop,compose,over,set}
 }
 
 writeFile = encaseN3 writeFile
@@ -52,8 +53,12 @@ function createPkgFolder base, name
 
 makeKeywords = ({pkg:{keywords}, meta: {babel}}) ->
     if babel 
-    then keywords.concat [\babel, \babel-plugin]
+    then keywords.concat [\babel, \babel-plugin ]
     else keywords
+
+setKeywords = set compose do 
+                        prop \pkg
+                        prop \keywords
 
 function renderTemplate file, data
     renderFile file.template, data
@@ -69,6 +74,9 @@ function copyTemplates pkgFolder, answers
 
 inquirer.prompt questions
     .then ({pkg}:answers) ->
-            createPkgFolder process.cwd!, pkg.name
-                .chain copyTemplates _, answers
-                .fork console.log, console.error
+            answers
+            |> -> setKeywords (makeKeywords it), it
+            |> -> 
+                createPkgFolder process.cwd!, pkg.name
+                    .chain copyTemplates _, it
+                    .fork console.log, console.error

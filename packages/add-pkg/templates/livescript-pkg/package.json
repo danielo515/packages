@@ -16,7 +16,7 @@
     "watch": "lsc -b -c -w -o lib index"
   },
   "keywords": [
-    <%- `"${pkg.keywords.join('",\n"')}"` -%>
+    <%- `"${pkg.keywords.join('",\n\t"')}"` -%>
   ],
   "author": "Danielo Rodríguez Rivero",
   "license": "MIT",
