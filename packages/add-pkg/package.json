@@ -1,7 +1,7 @@
 {
-  "name": "<%= pkg.name %>",
+  "name": "add-pkg",
   "version": "1.0.0",
-  "description": "<%= pkg.description %>",
+  "description": "",
   "main": "lib/index.js",
   "files": [
     "lib"
@@ -16,11 +16,9 @@
     "watch": "lsc -b -c -w -o lib index"
   },
   "keywords": [
-    <% if( meta.babelPlugin ){ -%>
-    "babel-plugin",
-    "babel",
-    <% } -%>
-    <%- `"${pkg.keywords.join('","')}"` -%>
+    "internal",
+    "wizard",
+    "template"
   ],
   "author": "Danielo Rodríguez Rivero",
   "license": "MIT",
@@ -32,5 +30,6 @@
     "code": "^5.2.0",
     "lab": "^15.5.0",
     "livescript": "^1.5.0"
-  }
+  },
+  "private": true
 }

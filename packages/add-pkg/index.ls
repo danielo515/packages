@@ -31,10 +31,11 @@ questions =
       choices:
         \livescript
         \javascript
-    # * type: 
-    #   name:
-    #   message:
-    #   filter:
+    * type: \confirm
+      name: \lsNext
+      message: 'Do you want to use livescript-next?'
+      default: false
+      when: (.pkg.language == 'livescript')
     # * type: 
     #   name:
     #   message:

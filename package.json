@@ -13,7 +13,7 @@
     "build": "lerna run build",
     "cm": "git-cz",
     "commitmsg": "validate-commit-msg",
-    "add-package": "lsc -b bin/add-pkg",
+    "add-package": "lsc -b packages/add-pkg",
     "publish": "lerna publish --conventional-commits --message 'chore: Publish [skip ci]'"
   },
   "keywords": [],
