@@ -1,4 +1,4 @@
-import sanctuary: {unchecked}
+import sanctuary: {unchecked, prop, map, ap, insert}
 import \sanctuary-def : $
 {reduce} = unchecked
 prod = /production/i .test process.env.NODE_ENV
@@ -24,6 +24,10 @@ log = (label,x) ->
     console.log label
     console.log x
 
+pick = (paths) ->
+    getters = map ((path) -> (prop path) >> (insert path) ), paths
+    -> Object.assign ...(ap (ap getters, [it]), [{}])
+
 inspect = (label, fn, x) ->
     log label, x
     fn x
@@ -33,3 +37,4 @@ module.exports =
     inspect: def \sanfu/inspect {} [$.String, $.AnyFunction, $.Any, $.Any] inspect
     pipeAcc: def \sanfu/promise/pipeAcc {} [($.Array $.AnyFunction), $.AnyFunction] pipeAcc
     push: def \sanfu/push {} [($.Array $.Any), $.Any] push
+    pick: def \sanfu/pick {} [($.Array $.String), $.Function [$.Object,$.Object]] pick
