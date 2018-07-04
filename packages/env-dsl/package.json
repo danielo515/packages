@@ -25,6 +25,6 @@
     "babel-cli": "^6.26.0",
     "gh-pages": "^1.2.0",
     "nearley": "^2.13.0",
-    "sanctuary": "^0.14.1"
+    "sanctuary": "^0.15.0"
   }
 }

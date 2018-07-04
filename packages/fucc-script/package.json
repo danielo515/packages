@@ -28,7 +28,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "gh-pages": "^1.2.0",
-    "sanctuary": "^0.14.1",
+    "sanctuary": "^0.15.0",
     "livescript":"^1.5.0"
   }
 }

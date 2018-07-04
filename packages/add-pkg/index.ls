@@ -1,10 +1,11 @@
 require! {
     inquirer
     ejs
-    fluture: {node, encaseN2, encaseN3, encaseN, parallel}
+    fluture: {node, encaseN2, encaseN3, encaseN, encaseP, parallel}
     fs: {readdir, readFile, writeFile, mkdir}
     path: {join}
-    \partial.lenses : {get,prop,compose,over,set}
+    \partial.lenses : {get,prop,compose,over,set, collect, elems, concat, branches,valueOr, assign, foldl}
+    sanctuary: {T, chain, map, K, reduce }
 }
 
 writeFile = encaseN3 writeFile
@@ -13,34 +14,51 @@ readFile = encaseN2 readFile
 mkdir = encaseN mkdir
 renderFile = encaseN2 ejs.renderFile
 
-questions = 
-    * type: \input
-      name: \pkg.name
-      message: 'Name the package'
-      filter: (.split ' ' .join \- .toLowerCase!)
-    * type: \confirm
-      name: \meta.babel
-      message: 'Is this a babel plugin ?'
-      default: false
-    * type: \input
-      name: \pkg.keywords
-      message: 'Comma separated list of keywords for npm. Do not include babel ones'
-      filter: (.split ',' .map (.trim!) )
-    * type: \list
-      name: \pkg.language
-      message: 'Which language do you want to use ?'
-      choices:
-        \livescript
-        \javascript
-    * type: \confirm
-      name: \lsNext
-      message: 'Do you want to use livescript-next?'
-      default: false
-      when: (.pkg.language == 'livescript')
-    # * type: 
-    #   name:
-    #   message:
-    #   filter:
+ObjMonoid = 
+    empty: -> {}
+    concat: -> Object.assign ...
+
+function readPackages
+    readDir \packages
+    .map -> it.filter (!= /^\./) .map (join \../, _, \package.json)
+    .map -> it.map require
+
+function propsAt
+    get [ it, valueOr (it):{} ]
+
+makeQuestions = ({dependencies, devDependencies}) ->
+    questions =
+        * type: \input
+          name: \pkg.name
+          message: 'Name the package'
+          filter: (.split ' ' .join \- .toLowerCase!)
+        * type: \confirm
+          name: \meta.babel
+          message: 'Is this a babel plugin ?'
+          default: false
+        * type: \input
+          name: \pkg.keywords
+          message: 'Comma separated list of keywords for npm. Do not include babel ones'
+          filter: (.split ',' .map (.trim!) )
+        * type: \list
+          name: \pkg.language
+          message: 'Which language do you want to use ?'
+          choices:
+              \livescript
+              \javascript
+        * type: \confirm
+          name: \lsNext
+          message: 'Do you want to use livescript-next?'
+          default: false
+          when: (.pkg.language == 'livescript')
+        * type: \checkbox
+          name: \pkg.dependencies
+          choices: toOptions dependencies
+          message: 'Selec one or many of the available dependencies'
+        * type: \checkbox
+          name: \pkg.devDependencies
+          choices: toOptions devDependencies
+          message: 'Selec one or many of the available dev-dependencies'
 
 templates = 
     root: join __dirname, \templates
@@ -55,28 +73,52 @@ makeKeywords = ({pkg:{keywords}, meta: {babel}}) ->
     if babel 
     then keywords.concat [\babel, \babel-plugin ]
     else keywords
+makeKeDeps = ({pkg:{deps}, meta: {babel}}) ->
+    if babel 
+    then keywords.concat [\babel, \babel-plugin ]
+    else keywords
 
 setKeywords = set compose do 
                         prop \pkg
                         prop \keywords
 
+setDeps = set compose do 
+                    prop \pkg
+                    prop \dependencies
+
 function renderTemplate file, data
     renderFile file.template, data
         .map -> Object.assign {content: it}, file
 
-function copyTemplates pkgFolder, answers
-    console.log 'Copying to:' pkgFolder
+function copyTemplates targetFolder, answers
+    console.log 'Copying to:' targetFolder
     readDir templates.ls
         .map -> it.map -> template: (join templates.ls, it), name: it
         .chain -> parallel it.length, it.map renderTemplate _, answers
-        .chain -> parallel it.length, it.map -> writeFile (join pkgFolder, it.name), it.content, \utf-8
+        .chain -> parallel it.length, it.map -> writeFile (join targetFolder, it.name), it.content, \utf-8
 
+toOptions = ->
+    Object.entries it ? {}
+        .map do 
+            ([key,val]) -> name: key, value: "'#key': '#val'"
 
-inquirer.prompt questions
-    .then ({pkg}:answers) ->
-            answers
-            |> -> setKeywords (makeKeywords it), it
-            |> -> 
-                createPkgFolder process.cwd!, pkg.name
-                    .chain copyTemplates _, it
-                    .fork console.log, console.error
+pickDeps = 
+    foldl do
+        (acc, val, key) -> assign key, val, acc
+        {}
+        [elems, branches \dependencies \devDependencies]
+
+readPackages!
+    .map pickDeps
+    .map makeQuestions
+    .chain encaseP inquirer.prompt
+    .fork (console.dir _ , depth: 15), console.error
+
+# inquirer.prompt questions
+#     .then ({pkg}:answers) ->
+#             answers
+#             |> -> setKeywords (makeKeywords it), it
+#             |> -> 
+#                 createPkgFolder process.cwd!, pkg.name
+#                     .chain copyTemplates _, it
+#                     .fork console.log, console.error
