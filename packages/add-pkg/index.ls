@@ -4,6 +4,7 @@ require! {
     fluture: {node, encaseN2, encaseN3, encaseN, encaseP, parallel}
     fs: {readdir, readFile, writeFile, mkdir}
     path: {join}
+    lodash: {pick}
     \partial.lenses : {get,prop,compose,over,set, collect, elems, concat, branches,valueOr, assign, foldl}
     sanctuary: {T, chain, map, K, reduce }
 }
@@ -53,11 +54,13 @@ makeQuestions = ({dependencies, devDependencies}) ->
           when: (.pkg.language == 'livescript')
         * type: \checkbox
           name: \pkg.dependencies
-          choices: toOptions dependencies
+          choices: Object.keys dependencies
+          filter: -> pick dependencies, it
           message: 'Selec one or many of the available dependencies'
         * type: \checkbox
           name: \pkg.devDependencies
-          choices: toOptions devDependencies
+          choices: Object.keys devDependencies
+          filter: -> pick devDependencies, it
           message: 'Selec one or many of the available dev-dependencies'
 
 templates = 
@@ -78,13 +81,9 @@ makeKeDeps = ({pkg:{deps}, meta: {babel}}) ->
     then keywords.concat [\babel, \babel-plugin ]
     else keywords
 
-setKeywords = set compose do 
-                        prop \pkg
-                        prop \keywords
+setKeywords = set [ \pkg \keywords ]
 
-setDeps = set compose do 
-                    prop \pkg
-                    prop \dependencies
+setDeps = set [ \pkg \dependencies ]
 
 function renderTemplate file, data
     renderFile file.template, data
@@ -97,11 +96,6 @@ function copyTemplates targetFolder, answers
         .chain -> parallel it.length, it.map renderTemplate _, answers
         .chain -> parallel it.length, it.map -> writeFile (join targetFolder, it.name), it.content, \utf-8
 
-toOptions = ->
-    Object.entries it ? {}
-        .map do 
-            ([key,val]) -> name: key, value: "'#key': '#val'"
-
 pickDeps = 
     foldl do
         (acc, val, key) -> assign key, val, acc
@@ -112,7 +106,8 @@ readPackages!
     .map pickDeps
     .map makeQuestions
     .chain encaseP inquirer.prompt
-    .fork (console.dir _ , depth: 15), console.error
+    .map -> setKeywords (makeKeywords it), it
+    .fork (console.dir _ , depth: 5), console.error
 
 # inquirer.prompt questions
 #     .then ({pkg}:answers) ->

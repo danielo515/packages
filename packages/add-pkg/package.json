@@ -32,8 +32,10 @@
     "livescript": "^1.5.0"
   },
   "dependencies": {
-    "sanctuary": "^0.15.0",
-    "partial.lenses": "^13.13.0"
+    "sanfu":"1.1.0",
+    "lodash": "^4.17.10",
+    "partial.lenses": "^13.13.0",
+    "sanctuary": "^0.15.0"
   },
   "private": true
 }
