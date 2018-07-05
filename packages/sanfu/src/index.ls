@@ -32,9 +32,17 @@ inspect = (label, fn, x) ->
     log label, x
     fn x
 
+function starling f, g, a
+    f a, g a
+
+
+S = def \sanfu/starling {} [($.Function [$.Any, $.Function [$.Any, $.Any]]), ($.Function [$.Any, $.Any]), $.Any, $.Any] starling
+
 module.exports = 
     tap: def \sanfu/tap {} [$.AnyFunction, $.Any, $.Any] tap
     inspect: def \sanfu/inspect {} [$.String, $.AnyFunction, $.Any, $.Any] inspect
     pipeAcc: def \sanfu/promise/pipeAcc {} [($.Array $.AnyFunction), $.AnyFunction] pipeAcc
     push: def \sanfu/push {} [($.Array $.Any), $.Any] push
     pick: def \sanfu/pick {} [($.Array $.String), $.Function [$.Object,$.Object]] pick
+    starling: S
+    S: S

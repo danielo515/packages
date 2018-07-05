@@ -1,4 +1,4 @@
-const { pipeAcc, inspect, push, pick } = require('..')
+const { pipeAcc, inspect, push, pick, S } = require('..')
 
 
 const x = pipeAcc([ 
@@ -16,4 +16,10 @@ console.log(adder(55));
 console.log(
     'PICK:',
     pick(['a', 'b']) ({ a:1, b:2, c:3 })
+)
+
+console.log(
+    'Starling: ',
+    S,
+    S (a => b => a + b) (a => a + 99) (1)
 )
