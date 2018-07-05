@@ -1,7 +1,7 @@
 require! {
     inquirer
     ejs
-    fluture: {node, encaseN2, encaseN3, encaseN, encaseP, parallel}
+    fluture:{node, encaseN2, encaseN3, encaseN, encaseP, parallel}:F
     fs: {readdir, readFile, writeFile, mkdir}
     path: {join}
     lodash: {pick}
@@ -107,6 +107,8 @@ readPackages!
     .map makeQuestions
     .chain encaseP inquirer.prompt
     .map -> setKeywords (makeKeywords it), it
+    .chain -> parallel 2 [(createPkgFolder process.cwd!, it.pkg.name), F.of it]
+    .chain -> copyTemplates it.0, it.1
     .fork (console.dir _ , depth: 5), console.error
 
 # inquirer.prompt questions
