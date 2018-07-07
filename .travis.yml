@@ -7,6 +7,6 @@ branches:
     - master
 script:
   - npm run npm-setup
-  - npm run publish -- --yes --skip-git
+  - npm run publish -- --yes --git-remote https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}
 after_success:
   - bin/github.sh
