@@ -19,4 +19,5 @@ upload_files() {
 
 setup_git
 # commit_website_files
+git log --oneline -n 5
 upload_files
