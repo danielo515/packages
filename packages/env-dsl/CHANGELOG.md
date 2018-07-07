@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.2.0"></a>
+# 1.2.0 (2018-07-07)
+
+
+### Features
+
+* **wizard:** read current dependencies and offer them for new packages ([7896047](https://github.com/danielo515/env-dsl/commit/7896047))
+
+
+
+<a name="1.1.0"></a>
+# 1.1.0 (2018-06-24)
+
+
+
+
 <a name="1.1.0"></a>
 # 1.1.0 (2018-06-24)
 
