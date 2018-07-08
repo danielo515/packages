@@ -22,22 +22,37 @@ const { compact, map, head, pipe } = require('./util');
 var grammar = {
     Lexer: undefined,
     ParserRules: [
-    {"name": "main", "symbols": [NEWLINE]},
-    {"name": "main", "symbols": ["FUNCTION"]},
+    {"name": "STATEMENTS$ebnf$1", "symbols": ["STATEMENT"]},
+    {"name": "STATEMENTS$ebnf$1", "symbols": ["STATEMENTS$ebnf$1", "STATEMENT"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "STATEMENTS", "symbols": ["STATEMENTS$ebnf$1"], "postprocess":  data => {
+          return data[0]
+        }},
+    {"name": "STATEMENT$subexpression$1$ebnf$1", "symbols": [INDENT], "postprocess": id},
+    {"name": "STATEMENT$subexpression$1$ebnf$1", "symbols": [], "postprocess": function(d) {return null;}},
+    {"name": "STATEMENT$subexpression$1$subexpression$1", "symbols": ["FUNCTION"]},
+    {"name": "STATEMENT$subexpression$1$subexpression$1", "symbols": [NEWLINE]},
+    {"name": "STATEMENT$subexpression$1", "symbols": ["STATEMENT$subexpression$1$ebnf$1", "STATEMENT$subexpression$1$subexpression$1"]},
+    {"name": "STATEMENT", "symbols": ["STATEMENT$subexpression$1"], "postprocess": data => data[0][1][0]},
     {"name": "FUNCTION", "symbols": [NAME, "_", "PARAMS", arrow, "BLOCK"]},
+    {"name": "BLOCK$subexpression$1$subexpression$1$ebnf$1", "symbols": ["STATEMENT"]},
+    {"name": "BLOCK$subexpression$1$subexpression$1$ebnf$1", "symbols": ["BLOCK$subexpression$1$subexpression$1$ebnf$1", "STATEMENT"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "BLOCK$subexpression$1$subexpression$1", "symbols": [NEWLINE, INDENT, "BLOCK$subexpression$1$subexpression$1$ebnf$1", DEDENT]},
+    {"name": "BLOCK$subexpression$1", "symbols": ["BLOCK$subexpression$1$subexpression$1"]},
+    {"name": "BLOCK$subexpression$1$subexpression$2$ebnf$1", "symbols": ["STATEMENT"]},
+    {"name": "BLOCK$subexpression$1$subexpression$2$ebnf$1", "symbols": ["BLOCK$subexpression$1$subexpression$2$ebnf$1", "STATEMENT"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "BLOCK$subexpression$1$subexpression$2", "symbols": [NEWLINE, INDENT, "BLOCK$subexpression$1$subexpression$2$ebnf$1"]},
+    {"name": "BLOCK$subexpression$1", "symbols": ["BLOCK$subexpression$1$subexpression$2"]},
+    {"name": "BLOCK", "symbols": ["BLOCK$subexpression$1"], "postprocess": data => data[0][0][2]},
     {"name": "PARAMS$ebnf$1", "symbols": []},
     {"name": "PARAMS$ebnf$1$subexpression$1", "symbols": ["NAME", "_"]},
     {"name": "PARAMS$ebnf$1", "symbols": ["PARAMS$ebnf$1", "PARAMS$ebnf$1$subexpression$1"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
     {"name": "PARAMS", "symbols": ["PARAMS$ebnf$1"], "postprocess": pipe( head, map(head) )},
     {"name": "NAME", "symbols": [NAME], "postprocess": head},
-    {"name": "BLOCK$ebnf$1", "symbols": ["STATEMENT"]},
-    {"name": "BLOCK$ebnf$1", "symbols": ["BLOCK$ebnf$1", "STATEMENT"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
-    {"name": "BLOCK", "symbols": [NEWLINE, INDENT, "BLOCK$ebnf$1"], "postprocess": ([,head, ...tail]) => log('BLock')({head, tail})},
     {"name": "STATEMENT$ebnf$1", "symbols": [INDENT], "postprocess": id},
     {"name": "STATEMENT$ebnf$1", "symbols": [], "postprocess": function(d) {return null;}},
-    {"name": "STATEMENT$subexpression$1", "symbols": ["EXPRESSION"]},
-    {"name": "STATEMENT$subexpression$1", "symbols": [NEWLINE]},
-    {"name": "STATEMENT", "symbols": ["STATEMENT$ebnf$1", "STATEMENT$subexpression$1"]},
+    {"name": "STATEMENT$subexpression$2", "symbols": ["EXPRESSION"]},
+    {"name": "STATEMENT$subexpression$2", "symbols": [NEWLINE]},
+    {"name": "STATEMENT", "symbols": ["STATEMENT$ebnf$1", "STATEMENT$subexpression$2"]},
     {"name": "BODY$ebnf$1", "symbols": ["BLOCK"]},
     {"name": "BODY$ebnf$1", "symbols": ["BODY$ebnf$1", "BLOCK"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
     {"name": "BODY", "symbols": ["BODY$ebnf$1"]},
@@ -46,7 +61,7 @@ var grammar = {
     {"name": "EXPRESSION", "symbols": ["EXPRESSION$ebnf$1"]},
     {"name": "CALL$subexpression$1", "symbols": [NAME]},
     {"name": "CALL$subexpression$1", "symbols": [keyword]},
-    {"name": "CALL", "symbols": ["CALL$subexpression$1", "ARGS"], "postprocess": log('CALLEE')},
+    {"name": "CALL", "symbols": ["CALL$subexpression$1", "ARGS"]},
     {"name": "ARGS$ebnf$1", "symbols": []},
     {"name": "ARGS$ebnf$1$subexpression$1", "symbols": ["_", "VAL"]},
     {"name": "ARGS$ebnf$1", "symbols": ["ARGS$ebnf$1", "ARGS$ebnf$1$subexpression$1"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
@@ -58,7 +73,7 @@ var grammar = {
     {"name": "__$ebnf$1", "symbols": ["__$ebnf$1", WS], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
     {"name": "__", "symbols": ["__$ebnf$1"], "postprocess": nothing}
 ]
-  , ParserStart: "main"
+  , ParserStart: "STATEMENTS"
 }
 if (typeof module !== 'undefined'&& typeof module.exports !== 'undefined') {
    module.exports = grammar;

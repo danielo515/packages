@@ -17,15 +17,30 @@ const { compact, map, head, pipe } = require('./util');
 
 %}
 
-main -> %NEWLINE | FUNCTION
+STATEMENTS -> STATEMENT:+ {% data => {
+  return data[0]
+}%}
+
+STATEMENT -> ( %INDENT:? (
+  FUNCTION |
+  %NEWLINE
+)) {% data => data[0][1][0] %}
+
+
 FUNCTION -> %NAME _ PARAMS %arrow BLOCK
+
+BLOCK -> (
+  (%NEWLINE %INDENT STATEMENT:+ %DEDENT) |
+  (%NEWLINE %INDENT STATEMENT:+)
+) {% data => data[0][0][2] %}
+
 PARAMS ->  (NAME _):* {% pipe( head, map(head) ) %}
 NAME -> %NAME {% head %}
-BLOCK -> %NEWLINE %INDENT STATEMENT:+ {% ([,head, ...tail]) => log('BLock')({head, tail}) %}
+# BLOCK -> %NEWLINE %INDENT STATEMENT:+ {% ([,head, ...tail]) => log('BLock')({head, tail}) %}
 STATEMENT -> %INDENT:? (EXPRESSION | %NEWLINE)
 BODY -> BLOCK:+
 EXPRESSION -> CALL:+
-CALL -> (%NAME | %keyword) ARGS {% log('CALLEE') %}
+CALL -> (%NAME | %keyword) ARGS
 ARGS -> (_ VAL):* {% _ => ({type: 'args', elements: _ })%}
 VAL -> %number | %NAME
 # Whitespace. The important thing here is that the postprocessor

@@ -2,7 +2,10 @@
 
 const { parser } = require('../src/parser')();
 
-const program = `JB x y -> map 5`;
+const program = `
+JB x y ->
+  map 5
+  sum 2`;
 
 parser.feed (program);
 
