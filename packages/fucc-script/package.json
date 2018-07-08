@@ -4,22 +4,25 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "test": "npm run generate",
+    "test": "nearly-test ./src/grammar.js",
     "pretest": "npm run build",
-    "railroad":"nearley-railroad ./src/grammar.ne -o grammar.html",
-    "generate":"nearley-unparse ./lib/grammar.js -o example",
+    "railroad": "nearley-railroad ./src/grammar.ne -o grammar.html",
+    "generate": "nearley-unparse -n 1 ./src/grammar.js",
     "build": "nearleyc ./src/grammar.ne -o ./src/grammar.js && npm run babel",
+    "build:grammar": "nearleyc ./src/grammar.ne -o ./src/grammar.js",
+    "build:grammar-moo": "nearleyc ./src/grammar-moo.ne -o ./src/grammar.js",
     "babel": "NODE_ENV=production babel src -d lib",
     "playground-build": "rm -rf ./dist && parcel build pages/index.html --public-url ./",
     "playground-publish": "gh-pages -d dist -r https://github.com/danielo515/fucc-script.git",
-    "playground":"npm run playground-build && npm run playground-publish"
+    "playground": "npm run playground-build && npm run playground-publish"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "moo": "^0.4.3",
     "nearley": "^2.13.0",
-    "moo": "^0.4.3"
+    "nearley-moo": "^1.0.2"
   },
   "repository": {
     "url": "https://github.com/danielo515/fucc-script.git",
@@ -29,6 +32,6 @@
     "babel-cli": "^6.26.0",
     "gh-pages": "^1.2.0",
     "sanctuary": "^0.15.0",
-    "livescript":"^1.5.0"
+    "livescript": "^1.5.0"
   }
 }

@@ -1,17 +1,29 @@
 const moo = require('moo')
 
-const lexer = moo.compile({
-    WS:      /[ \t]+/
-    , comment: /\/\/.*?$/
-    , number:  /0|[1-9][0-9_]*[a-z]*/
-    , NAME: /[a-zA-Z_]+/
-    , string:  /"(?:\\["\\]|[^\n"\\])*"/
-    , lparen:  '('
-    , rparen:  ')'
-    , property: /[a-zA-Z]:/
-    , arrow: '->'
-    , keyword: ['while', 'if', 'else', 'it']
-    , NL:      { match: /\n/, lineBreaks: true },
-})
+const lexer = moo.compile(require('./tokens'));
+
+lexer._reset = lexer.reset;
+lexer.reset = function (string) {
+  this.lastIndent = 0;
+  return this._reset(string);
+};
+
+const get = (o, p) => o ? o[p] : null;
+
+lexer._next = lexer.next;
+lexer.next = function () {
+  let nextToken = this._next();
+  if (get(nextToken, 'type') === 'INDENT') {
+    const nextIndent = nextToken.value.length
+    if (nextIndent < this.lastIndent) {
+      nextToken.type = 'DEDENT';
+    } else if (nextIndent === this.lastIndent) {
+      return this.next();
+    }
+    this.lastIndent = get(nextToken, 'value.length', 0);
+  }
+
+  return nextToken;
+};
 
 module.exports = lexer;
