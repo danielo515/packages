@@ -21,5 +21,5 @@ const concat = arr => arr2 => arr.concat(arr2)
 const K = v => _ => v
 
 module.exports = {
-    compact, join, map, head, pipe, filter, notnull, push, concat,K
+    compact, join, map, head, pipe, filter, notnull, push, concat,K, nth
 }

@@ -1,4 +1,5 @@
-const moo = require('moo')
+const moo = require('moo');
+const { get } = require('lodash');
 
 const lexer = moo.compile(require('./tokens'));
 
@@ -7,8 +8,6 @@ lexer.reset = function (string) {
   this.lastIndent = 0;
   return this._reset(string);
 };
-
-const get = (o, p) => o ? o[p] : null;
 
 lexer._next = lexer.next;
 lexer.next = function () {

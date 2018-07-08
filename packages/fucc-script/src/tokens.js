@@ -11,7 +11,7 @@ module.exports = {
     , underscore: / _ /
     , INDENT: /^[\t ]+/
     , DEDENT: 'DEDENT'
-    , WS:      /[\t ]+/
+    , WS:      /[ ]/
     , arrow: /[\t ]*->[\t ]*/
     , keyword: ['map', 'reduce', 'else', 'it']
     , NEWLINE: { match: /[\r\n]/, lineBreaks: true, }

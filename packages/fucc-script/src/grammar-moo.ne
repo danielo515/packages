@@ -13,37 +13,33 @@ const fn = ([id,,args,arrow,,body]) => ({
     , body
 });
 
-const { compact, map, head, pipe } = require('./util');
+const { compact, map, head, pipe, K, nth } = require('./util');
 
 %}
 
-STATEMENTS -> STATEMENT:+ {% data => {
-  return data[0]
-}%}
+STATEMENTS -> STATEMENT:+ {% data => { return data[0] }%}
 
 STATEMENT -> ( %INDENT:? (
-  FUNCTION |
+  FUNCTION   |
   %NEWLINE
 )) {% data => data[0][1][0] %}
 
 
-FUNCTION -> %NAME _ PARAMS %arrow BLOCK
+FUNCTION -> %NAME _ PARAMS %arrow (BLOCK|EXPRESSION)
 
 BLOCK -> (
-  (%NEWLINE %INDENT STATEMENT:+ %DEDENT) |
-  (%NEWLINE %INDENT STATEMENT:+)
-) {% data => data[0][0][2] %}
+  (%NEWLINE %INDENT EXPRESSION %DEDENT) |
+  (%NEWLINE %INDENT EXPRESSION)
+) {% data => ({type: 'BLOCK' , body: data[0][0][2]}) %}
 
-PARAMS ->  (NAME _):* {% pipe( head, map(head) ) %}
+PARAMS ->  (NAME _):* # {% pipe( head, map(head) ) %}
 NAME -> %NAME {% head %}
 # BLOCK -> %NEWLINE %INDENT STATEMENT:+ {% ([,head, ...tail]) => log('BLock')({head, tail}) %}
-STATEMENT -> %INDENT:? (EXPRESSION | %NEWLINE)
-BODY -> BLOCK:+
-EXPRESSION -> CALL:+
-CALL -> (%NAME | %keyword) ARGS
-ARGS -> (_ VAL):* {% _ => ({type: 'args', elements: _ })%}
-VAL -> %number | %NAME
+# STATEMENT -> %INDENT:? (EXPRESSION | %NEWLINE)
+EXPRESSION -> CALL:+ | VAL
+CALL -> (%NAME | %keyword) ARGS {% ([[callee],body]) => ({type: 'call', callee, body })%}
+ARGS -> (_ VAL):*               {% ([_]) => ({type: 'args', elements: map(nth(1))(_) })%}
+VAL -> (%number | %NAME)        {% pipe(id, head) %}
 # Whitespace. The important thing here is that the postprocessor
 # is a null-returning function. This is a memory efficiency trick.
-_       -> %WS              {% nothing %}
-__		-> %WS:*			{% nothing %}
+_       -> %WS              {% K('WS') %}
