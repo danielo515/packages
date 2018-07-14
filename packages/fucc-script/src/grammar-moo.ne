@@ -30,7 +30,7 @@ FUNCTION -> %NAME _ PARAMS %arrow (BLOCK|EXPRESSION)
 BLOCK -> (
   (%NEWLINE %INDENT EXPRESSION %DEDENT) |
   (%NEWLINE %INDENT EXPRESSION)
-) {% data => ({type: 'BLOCK' , body: data[0][0][2]}) %}
+) {% data => ({type: 'BLOCK' , body: data[0][0][2][0]}) %}
 
 PARAMS ->  (NAME _):* # {% pipe( head, map(head) ) %}
 NAME -> %NAME {% head %}

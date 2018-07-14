@@ -38,7 +38,7 @@ var grammar = {
     {"name": "BLOCK$subexpression$1", "symbols": ["BLOCK$subexpression$1$subexpression$1"]},
     {"name": "BLOCK$subexpression$1$subexpression$2", "symbols": [NEWLINE, INDENT, "EXPRESSION"]},
     {"name": "BLOCK$subexpression$1", "symbols": ["BLOCK$subexpression$1$subexpression$2"]},
-    {"name": "BLOCK", "symbols": ["BLOCK$subexpression$1"], "postprocess": data => ({type: 'BLOCK' , body: data[0][0][2]})},
+    {"name": "BLOCK", "symbols": ["BLOCK$subexpression$1"], "postprocess": data => ({type: 'BLOCK' , body: data[0][0][2][0]})},
     {"name": "PARAMS$ebnf$1", "symbols": []},
     {"name": "PARAMS$ebnf$1$subexpression$1", "symbols": ["NAME", "_"]},
     {"name": "PARAMS$ebnf$1", "symbols": ["PARAMS$ebnf$1", "PARAMS$ebnf$1$subexpression$1"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},

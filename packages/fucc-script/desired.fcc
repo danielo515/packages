@@ -1,0 +1,21 @@
+import ../user:User
+
+add a b -> a + b
+can-drink -> (.age > 21)
+
+// pattern matching against the only input
+who-is ->
+    | (.name is 'Joe)    -> "Hey joe"       // is is like =
+    | (.age > 99)        -> "Hello matiasss"
+    | (.sex is 'Female)  -> "Hello sexy"
+    | _                  -> "Who the fuck are you"
+
+// On objects brackets are not required
+Pepito = name: 'Pepito
+         age: 19
+         hasDick: true
+         family:
+            parent: "Who knows"
+            mother: "Just a bitch"
+
+pepito-brother = Pepito << name: 'Gustabo
