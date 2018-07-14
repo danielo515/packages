@@ -1,4 +1,4 @@
-const { pipeAcc, inspect, push, pick, S } = require('..')
+const { pipeAcc, inspect, push, pick, S, apply } = require('..')
 const { set } = require('partial.lenses')
 const { flip } = require('sanctuary')
 
@@ -32,3 +32,9 @@ console.log(
     'Starling set deps',
     S (flip(setDeps)) (a => (console.log('got:', a), ['w'])) ({ pkg: { dependencies: ['x'] } })
 )
+
+console.log(
+    'Applying a fn',
+    apply,
+    apply (console.log) (['this', 'was', 'an', 'array'])
+);

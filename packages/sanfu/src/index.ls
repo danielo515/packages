@@ -1,8 +1,12 @@
 import sanctuary: {unchecked, prop, map, ap, insert}
 import \sanctuary-def : $
+import \./define : definitors
+
 {reduce} = unchecked
 prod = /production/i .test process.env.NODE_ENV
 def = $.create checkTypes:not prod, env: $.env
+
+{a,b,c, Fn} = definitors $
 
 function push arr, x
     arr.push x
@@ -19,6 +23,8 @@ function tap f, x
     f x
     x
 
+function apply f, args
+    f ...args
 
 log = (label,x) ->
     console.log label
@@ -36,7 +42,7 @@ function starling f, g, a
     f a, g a
 
 
-S = def \sanfu/starling {} [($.Function [$.Any, $.Function [$.Any, $.Any]]), ($.Function [$.Any, $.Any]), $.Any, $.Any] starling
+S = def \sanfu/starling {} [ (Fn a, (Fn b, c)) , (Fn a, b) , a , c ] starling
 
 module.exports = 
     tap: def \sanfu/tap {} [$.AnyFunction, $.Any, $.Any] tap
@@ -44,5 +50,6 @@ module.exports =
     pipeAcc: def \sanfu/promise/pipeAcc {} [($.Array $.AnyFunction), $.AnyFunction] pipeAcc
     push: def \sanfu/push {} [($.Array $.Any), $.Any] push
     pick: def \sanfu/pick {} [($.Array $.String), $.Function [$.Object,$.Object]] pick
+    apply: def \sanfu/apply {} [$.AnyFunction, $.Function [($.Array $.Any), $.Any]] apply
     starling: S
     S: S
