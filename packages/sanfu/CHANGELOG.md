@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.6.0"></a>
+# [1.6.0](https://github.com/danielo515/packages/compare/sanfu@1.5.0...sanfu@1.6.0) (2018-07-14)
+
+
+### Features
+
+* **utils:** added signature helpers and apply function ([e8ae11c](https://github.com/danielo515/packages/commit/e8ae11c))
+
+
+
+
 <a name="1.5.0"></a>
 # [1.5.0](https://github.com/danielo515/packages/compare/sanfu@1.0.1...sanfu@1.5.0) (2018-07-07)
 
