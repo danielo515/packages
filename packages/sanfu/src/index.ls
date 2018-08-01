@@ -55,3 +55,4 @@ module.exports =
     apply: def \sanfu/apply {} [$.AnyFunction, $.Function [($.Array $.Any), $.Any]] apply
     starling: S
     S: S
+    indexBy: def \sanfu/indexBy {} [$.String, ($.Array $.Object), $.Object] indexBy
