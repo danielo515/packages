@@ -41,6 +41,8 @@ inspect = (label, fn, x) ->
 function starling f, g, a
     f a, g a
 
+groupBy = (key) ->
+    map (insert prop key)
 
 S = def \sanfu/starling {} [ (Fn a, (Fn b, c)) , (Fn a, b) , a , c ] starling
 

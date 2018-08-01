@@ -4,7 +4,7 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "test": "npm run generate",
+    "test": "node test",
     "pretest": "npm run build",
     "prepublish": "rm -rf lib && npm run build",
     "build": "NODE_ENV=production babel ./src --extensions '.ls' -d lib",
