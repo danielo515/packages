@@ -1,4 +1,4 @@
-import sanctuary: {unchecked, prop, map, ap, insert}
+import sanctuary: {unchecked, prop, map, ap, insert, flip, pipe, compose:B}
 import \sanctuary-def : $
 import \./define : definitors
 
@@ -41,6 +41,8 @@ inspect = (label, fn, x) ->
 function starling f, g, a
     f a, g a
 
+indexBy = (key) ->
+    flip (B pipe, map (ap flip insert) prop key), {}
 
 S = def \sanfu/starling {} [ (Fn a, (Fn b, c)) , (Fn a, b) , a , c ] starling
 
@@ -53,3 +55,4 @@ module.exports =
     apply: def \sanfu/apply {} [$.AnyFunction, $.Function [($.Array $.Any), $.Any]] apply
     starling: S
     S: S
+    indexBy: def \sanfu/indexBy {} [$.String, ($.Array $.Object), $.Object] indexBy

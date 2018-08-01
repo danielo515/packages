@@ -1,9 +1,6 @@
 
-
 module.exports = ($) ->
-    Fn = (x,y) -> $.Function [x, y]
-
-    const a = $.TypeVariable 'a'
-    const b = $.TypeVariable 'b'
-    const c = $.TypeVariable 'c'
-    {a, b, c, Fn}
+    a: $.TypeVariable \a
+    b: $.TypeVariable \b
+    c: $.TypeVariable \c 
+    Fn: (x,y) -> $.Function [x, y]
