@@ -27,15 +27,14 @@ function apply f, args
     f ...args
 
 log = (label,x) ->
-    console.log label
-    console.log x
+    apply console.log, [label, x]
 
 pick = (paths) ->
     getters = map ((path) -> (prop path) >> (insert path) ), paths
     -> Object.assign ...(ap (ap getters, [it]), [{}])
 
-inspect = (label, fn, x) ->
-    log label, x
+inspect = (logger,label, fn, x) ->
+    apply logger, [label, x]
     fn x
 
 function starling f, g, a
@@ -48,7 +47,7 @@ S = def \sanfu/starling {} [ (Fn a, (Fn b, c)) , (Fn a, b) , a , c ] starling
 
 module.exports = 
     tap: def \sanfu/tap {} [$.AnyFunction, $.Any, $.Any] tap
-    inspect: def \sanfu/inspect {} [$.String, $.AnyFunction, $.Any, $.Any] inspect
+    inspect: def \sanfu/inspect {} [$.AnyFunction, $.String, $.AnyFunction, $.Any, $.Any] inspect
     pipeAcc: def \sanfu/promise/pipeAcc {} [($.Array $.AnyFunction), $.AnyFunction] pipeAcc
     push: def \sanfu/push {} [($.Array $.Any), $.Any] push
     pick: def \sanfu/pick {} [($.Array $.String), $.Function [$.Object,$.Object]] pick
