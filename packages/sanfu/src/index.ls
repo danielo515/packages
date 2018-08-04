@@ -1,4 +1,4 @@
-import sanctuary: {unchecked, prop, map, ap, insert, flip, pipe, compose:B}
+import sanctuary: {unchecked, prop, map, ap, insert, flip, pipe, compose:B, singleton, foldMap }
 import \sanctuary-def : $
 import \./define : definitors
 
@@ -42,7 +42,7 @@ function starling f, g, a
     f a, g a
 
 indexBy = (key) ->
-    flip (B pipe, map (ap flip insert) prop key), {}
+    foldMap Object, (ap flip singleton) prop key
 
 S = def \sanfu/starling {} [ (Fn a, (Fn b, c)) , (Fn a, b) , a , c ] starling
 
