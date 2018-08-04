@@ -8,7 +8,7 @@
     "prepublish": "rm -rf lib && npm run build",
     "build": "NODE_ENV=production babel ./src --extensions '.ls' -d lib",
     "build:test": "lsc -b -c test",
-    "test": "lab --reporter console --threshold 50 --assert code -P spec -f -T test/transformer --verbose test",
+    "test": "lab --reporter console -o stdout --threshold 50 --assert code -P spec -f -T test/transformer --verbose test",
     "watch": "babel -w ./src --extensions '.ls' -d lib",
     "start": "lsc execute"
   },
