@@ -1,6 +1,6 @@
 {
   "name": "sanfu",
-  "version": "1.7.0",
+  "version": "2.0.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -23,8 +23,6 @@
     "type": "git"
   },
   "devDependencies": {
-    "code": "^5.2.0",
-    "lab": "^15.5.0",
     "babel-cli": "^6.26.0",
     "babel-plugin-all-curried": "^4.0.0",
     "babel-plugin-curry-all": "^2.0.2",
@@ -32,6 +30,8 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
     "babel-runtime": "^6.26.0",
+    "code": "^5.2.0",
+    "lab": "^15.5.0",
     "livescript": "^1.5.0",
     "livescript-next": "^0.0.4"
   }
