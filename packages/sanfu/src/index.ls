@@ -9,13 +9,16 @@ def = $.create checkTypes:not prod, env: $.env
 {a,b,c, Fn} = definitors $
 
 function push arr, x
+    [...arr, x]
+
+function push_ arr, x
     arr.push x
     arr
 
 objAcc = (init, o) -> {...init, ...o}
 
 function pipeAcc fns
-    acc = push []
+    acc = push_ []
     reducer = (p, f) -> p.then f . acc
     (x) -> reduce reducer, (Promise.resolve x), fns
 

@@ -11,4 +11,4 @@ describe 'Sanfu push', ->
       values = [1,2,3]
       expected = [1,2,3,4]
       (expect (sanfu.push values) 4).to.equal expected
-      (expect (sanfu.push values) 4).to.shallow.equal values
+      (expect (sanfu.push values) 4).to.not.shallow.equal values
