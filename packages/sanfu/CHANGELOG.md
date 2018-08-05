@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.2.0"></a>
+# [2.2.0](https://github.com/danielo515/packages/compare/sanfu@2.1.0...sanfu@2.2.0) (2018-08-05)
+
+
+### Bug Fixes
+
+* **publish:** fix gh-pages params ([a61032d](https://github.com/danielo515/packages/commit/a61032d))
+
+
+### Features
+
+* **docs:** added some more docs to test publishing ([e01cce8](https://github.com/danielo515/packages/commit/e01cce8))
+
+
+
+
 <a name="2.1.0"></a>
 # [2.1.0](https://github.com/danielo515/packages/compare/sanfu@2.0.0...sanfu@2.1.0) (2018-08-05)
 
