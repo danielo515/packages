@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/danielo515/packages/compare/sanfu@1.7.0...sanfu@2.0.0) (2018-08-05)
+
+
+### Features
+
+* **inspect:** make inspect more general by accepting the logger function ([02783cd](https://github.com/danielo515/packages/commit/02783cd))
+* **push:** push is now idempotent and stateless ([1196a85](https://github.com/danielo515/packages/commit/1196a85))
+
+
+### BREAKING CHANGES
+
+* **push:** push is now stateless
+* **inspect:** inspect now requires an extra logging argument
+
+
+
+
+<a name="1.7.0"></a>
+# [1.7.0](https://github.com/danielo515/packages/compare/sanfu@1.6.0...sanfu@1.7.0) (2018-08-01)
+
+
+### Features
+
+* **library:** export indexBy with type checking ([7154b38](https://github.com/danielo515/packages/commit/7154b38))
+* **util:** added indexBy utility function ([61b67ed](https://github.com/danielo515/packages/commit/61b67ed))
+
+
+
+
 <a name="1.6.0"></a>
 # [1.6.0](https://github.com/danielo515/packages/compare/sanfu@1.5.0...sanfu@1.6.0) (2018-07-14)
 
