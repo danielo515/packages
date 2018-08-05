@@ -1,0 +1,10 @@
+{
+    "source": {
+        "includePattern": ".+\\.ls$",
+        "excludePattern": "(^|\\/|\\\\)_"
+    },
+    "plugins": [
+        "plugins/markdown",
+        "jsdoc-plugin.js"
+    ]
+}

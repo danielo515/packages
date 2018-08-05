@@ -8,6 +8,14 @@ def = $.create checkTypes:not prod, env: $.env
 
 {a,b,c, Fn} = definitors $
 
+"
+/**
+ * @function push
+ * @param  {Array} arr The array to use as base to push any element
+ * @param  {Any} x Any kind of item that will be pushed into the array
+ * @return {Array} The array with a new element at the end
+ */
+"
 function push arr, x
     [...arr, x]
 

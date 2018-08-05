@@ -23,6 +23,7 @@
     "type": "git"
   },
   "devDependencies": {
+    "jsdoc": "^3.5.5",
     "code": "^5.2.0",
     "lab": "^15.5.0",
     "babel-cli": "^6.26.0",
