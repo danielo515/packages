@@ -7,11 +7,20 @@ prod = /production/i .test process.env.NODE_ENV
 def = $.create checkTypes:not prod, env: $.env
 
 {a,b,c, Fn} = definitors $
-
 "
 /**
+* Utils targeted to array type
+* @namespace Array
+*/
+
+/**
  * @function push
+ * @memberOf Array
+ * @category List
+ * @description 
+ * ```
  * push :: [a] -> a -> [a]
+ * ```
  * @param  {Array} arr The array to use as base to push any element
  * @param  {Any} x Any kind of item that will be pushed into the array
  * @return {Array} The array with a new element at the end
@@ -24,6 +33,12 @@ function push_ arr, x
     arr.push x
     arr
 
+"
+/**
+ * Sanctuary functional utilities
+ * @module sanfu
+ */
+"
 objAcc = (init, o) -> {...init, ...o}
 
 function pipeAcc fns
@@ -34,8 +49,11 @@ function pipeAcc fns
 "
 /**
  * @function tap
- * tap :: Function -> a -> a
- * Wraps a function and returns a new function that will take any parameter, pass it to the
+ * @description 
+ * ```
+ * tap :: (* -> *) -> a -> a
+ * ```
+ * Wraps a function and returns a new function that will take **any** parameter, pass it to the
  * wrapped function which return value will be ignored and ther returns the given value.
  * It could be useful to introduce logging into pipelines and/or execute functions with side effects without interfering the pipeline
  * @param  {Function} f A function to be wrapped by tap

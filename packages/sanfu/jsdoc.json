@@ -1,10 +1,39 @@
 {
+    "applicationName": "Sanfu",
     "source": {
         "includePattern": ".+\\.ls$",
-        "excludePattern": "(^|\\/|\\\\)_"
+        "excludePattern": "(^|\\/|\\\\)_",
+        "include": [
+            "README.md"
+        ]
+    },
+    "title": "Sanfu",
+    "github": "https://github.com/danielo515/sanfu",
+    "gitter": "https://gitter.im/sanfu/Lobby",
+    "latest": "https://danielo515.github.io/sanfu/",
+    "try": "https://npm.runkit.com/sanfu",
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": [
+            "jsdoc",
+            "closure"
+        ]
+    },
+    "opts": {
+        "template": "./node_modules/docdash",
+        "encoding": "utf8",
+        "destination": "./docs/",
+        "recurse": true,
+        "readme": "./README.md",
+        "package": "./package.json"
     },
     "plugins": [
         "plugins/markdown",
-        "jsdoc-plugin.js"
-    ]
+        "jsdoc-plugin.js",
+        "jsdoc.js"
+    ],
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": true
+    }
 }

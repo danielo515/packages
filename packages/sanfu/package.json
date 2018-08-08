@@ -26,6 +26,7 @@
     "type": "git"
   },
   "devDependencies": {
+    "@pixi/jsdoc-template": "^2.4.2",
     "babel-cli": "^6.26.0",
     "babel-plugin-all-curried": "^4.0.0",
     "babel-plugin-curry-all": "^2.0.2",
@@ -34,10 +35,14 @@
     "babel-register": "^6.26.0",
     "babel-runtime": "^6.26.0",
     "code": "^5.2.0",
+    "docdash": "git+https://github.com/char0n/docdash.git#bf4b4eebfdaf042c0ea9038419bc26813f243c94",
     "gh-pages": "^1.2.0",
     "jsdoc": "^3.5.5",
     "lab": "^15.5.0",
     "livescript": "^1.5.0",
+    "livescript-next": "^0.0.4",
+    "loke-jsdoc-theme": "^2.1.0",
+    "minami": "^1.2.3",
     "rimraf": "^2.6.2"
   }
 }
