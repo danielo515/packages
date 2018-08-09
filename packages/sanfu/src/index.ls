@@ -15,7 +15,7 @@ def = $.create checkTypes:not prod, env: $.env
 
 /**
  * @function push
- * @memberOf Array
+ * @memberOf Array#
  * @category List
  * @description 
  * ```
@@ -33,12 +33,6 @@ function push_ arr, x
     arr.push x
     arr
 
-"
-/**
- * Sanctuary functional utilities
- * @module sanfu
- */
-"
 objAcc = (init, o) -> {...init, ...o}
 
 function pipeAcc fns
@@ -48,7 +42,12 @@ function pipeAcc fns
 
 "
 /**
+* General purpose utilities
+* @namespace Utils
+*/
+/**
  * @function tap
+ * @memberOf Utils#
  * @description 
  * ```
  * tap :: (* -> *) -> a -> a
