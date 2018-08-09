@@ -15,7 +15,7 @@ def = $.create checkTypes:not prod, env: $.env
 
 /**
  * @function push
- * @memberOf Array#
+ * @memberOf Array
  * @category List
  * @description 
  * ```
@@ -41,13 +41,15 @@ function pipeAcc fns
     (x) -> reduce reducer, (Promise.resolve x), fns
 
 "
+
 /**
 * General purpose utilities
 * @namespace Utils
 */
 /**
  * @function tap
- * @memberOf Utils#
+ * @memberOf Utils
+ * @category Function
  * @description 
  * ```
  * tap :: (* -> *) -> a -> a
@@ -96,3 +98,9 @@ module.exports =
     starling: S
     S: S
     indexBy: def \sanfu/indexBy {} [$.String, ($.Array $.Object), $.Object] indexBy
+
+
+"/**
+* @module Sanfu
+*/
+"
