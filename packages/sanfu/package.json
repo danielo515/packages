@@ -10,7 +10,7 @@
     "build": "NODE_ENV=production babel ./src --extensions '.ls' -d lib",
     "build:test": "lsc -b -c test",
     "test": "lab --reporter console -o stdout --threshold 50 --assert code -P spec -f -T test/transformer --verbose test",
-    "docs": "jsdoc src -d docs -R README.md -c jsdoc.json",
+    "docs": "rimraf docs && jsdoc src -c jsdoc.json",
     "docs:publish": "gh-pages -d docs -r  https://${GH_TOKEN}@github.com/danielo515/sanfu -b master -m 'chore: automatic docs build'",
     "watch": "babel -w ./src --extensions '.ls' -d lib",
     "start": "lsc execute"
@@ -26,6 +26,7 @@
     "type": "git"
   },
   "devDependencies": {
+    "@pixi/jsdoc-template": "^2.4.2",
     "babel-cli": "^6.26.0",
     "babel-plugin-all-curried": "^4.0.0",
     "babel-plugin-curry-all": "^2.0.2",
@@ -34,10 +35,12 @@
     "babel-register": "^6.26.0",
     "babel-runtime": "^6.26.0",
     "code": "^5.2.0",
+    "docdash": "git+https://github.com/char0n/docdash.git#bf4b4eebfdaf042c0ea9038419bc26813f243c94",
     "gh-pages": "^1.2.0",
     "jsdoc": "^3.5.5",
     "lab": "^15.5.0",
     "livescript": "^1.5.0",
-    "livescript-next": "^0.0.4"
+    "livescript-next": "^0.0.4",
+    "rimraf": "^2.6.2"
   }
 }
