@@ -5,11 +5,14 @@ import \./define : definitors
 { def } = definitors $
 "
 /**
+ * @namespace Object
+ */
+/**
  * @function pick
- * @category List
+ * @category Object
  * @memberOf Object#
  * @sig [String] -> Object -> Object
- * @param  {[String]} paths list of properties you want to pick
+ * @param  {Array<String>} paths list of properties you want to pick
  * @return {Object} Object containing only the specified properties
  * @example
  * const pickNameAge = pick (['age', 'name'])
