@@ -10,7 +10,7 @@ import \./define : definitors
 */
 /**
  * @function tap
- * @memberOf Utils
+ * @memberOf Utils#
  * @category Function
  * @description 
  * ```
@@ -21,7 +21,7 @@ import \./define : definitors
  * It could be useful to introduce logging into pipelines and/or execute functions with side effects without interfering the pipeline
  * @param  {Function} f A function to be wrapped by tap
  * @param  {Any} x      A value that will be passed to the wrapped function and then returned
- * @return {Any} {description}
+ * @return {Any} Returns the input untouched
  */
  "
 function tap f, x

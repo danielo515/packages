@@ -11,7 +11,7 @@ import \./define : definitors
 
 /**
  * @function push
- * @memberOf Array
+ * @memberOf Array#
  * @category List
  * @description 
  * ```
