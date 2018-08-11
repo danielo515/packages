@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.2.2"></a>
+## [2.2.2](https://github.com/danielo515/packages/compare/sanfu@2.2.1...sanfu@2.2.2) (2018-08-11)
+
+
+
+
+**Note:** Version bump only for package sanfu
+
 <a name="2.2.1"></a>
 ## [2.2.1](https://github.com/danielo515/packages/compare/sanfu@2.2.0...sanfu@2.2.1) (2018-08-10)
 
