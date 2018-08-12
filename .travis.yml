@@ -8,6 +8,6 @@ branches:
 script:
   - npm run npm-setup
   - git checkout master
-  - npm run publish -- --yes --git-remote https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}
+  - npm run publish -- --yes --loglevel silly --git-remote https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}
 after_success:
   - bin/github.sh
