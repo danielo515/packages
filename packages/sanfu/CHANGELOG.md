@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.3.0"></a>
+# [2.3.0](https://github.com/danielo515/packages/compare/sanfu@2.2.4...sanfu@2.3.0) (2018-08-12)
+
+
+### Features
+
+* **object:** added select and takeAction logic functions ([3c3267c](https://github.com/danielo515/packages/commit/3c3267c))
+
+
+
+
 <a name="2.2.4"></a>
 ## [2.2.4](https://github.com/danielo515/packages/compare/sanfu@2.2.3...sanfu@2.2.4) (2018-08-11)
 
