@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.4.0"></a>
+# [2.4.0](https://github.com/danielo515/packages/compare/sanfu@2.3.3...sanfu@2.4.0) (2018-08-12)
+
+
+### Features
+
+* **transformations:** added array2object transformation function ([0942945](https://github.com/danielo515/packages/commit/0942945))
+
+
+
+
 <a name="2.3.3"></a>
 ## [2.3.3](https://github.com/danielo515/packages/compare/sanfu@2.3.2...sanfu@2.3.3) (2018-08-12)
 
