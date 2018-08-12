@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.1.15"></a>
+## [1.1.15](https://github.com/danielo515/packages/compare/add-pkg@1.1.14...add-pkg@1.1.15) (2018-08-12)
+
+
+
+
+**Note:** Version bump only for package add-pkg
+
 <a name="1.1.14"></a>
 ## [1.1.14](https://github.com/danielo515/packages/compare/add-pkg@1.1.13...add-pkg@1.1.14) (2018-08-12)
 
