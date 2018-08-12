@@ -20,7 +20,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "sanctuary": "^0.15.0"
+    "sanctuary": "^0.15.0",
+    "sanctuary-def": "^0.18.1"
   },
   "repository": {
     "url": "https://github.com/danielo515/packages.git",
