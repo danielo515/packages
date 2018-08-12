@@ -11,3 +11,5 @@ export \./starling : S
 export \./apply : {apply}
 export \./inspect : {inspect}
 export \./pipeAcc : {pipeAcc}
+export \./select : {select: definition }
+export \./takeAction : {takeAction: definition }
