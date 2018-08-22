@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/danielo515/packages/compare/sanfu@2.4.1...sanfu@3.0.0) (2018-08-22)
+
+
+### Code Refactoring
+
+* **function:** rename inspect to spy to avoid conflicts ([360f1c3](https://github.com/danielo515/packages/commit/360f1c3))
+
+
+### BREAKING CHANGES
+
+* **function:** inspect has been renamed to spy
+
+
+
+
 <a name="2.4.1"></a>
 ## [2.4.1](https://github.com/danielo515/packages/compare/sanfu@2.4.0...sanfu@2.4.1) (2018-08-12)
 
