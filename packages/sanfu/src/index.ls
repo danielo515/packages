@@ -9,7 +9,7 @@ export \./pick : pick
 export \./starling : starling
 export \./starling : S
 export \./apply : {apply}
-export \./inspect : {inspect}
+export \./spy : {spy}
 export \./pipeAcc : {pipeAcc}
 export \./select : {select: definition }
 export \./takeAction : {takeAction: definition }
