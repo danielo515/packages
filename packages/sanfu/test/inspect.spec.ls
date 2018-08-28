@@ -6,12 +6,12 @@ require! {
 
 { it:It, experiment: describe } = exports.lab = Lab.script!
 
-describe 'Sanfu inspect', ->
+describe 'Sanfu spy', ->
   It 'Should log the arguments the function will take', ->
     sumOne = (+ 1)
     logger = (a,b) ->
         expect a .to.equal 'You are the logger'
         expect b .to.equal 1
       
-    inspector = (sanfu.inspect logger) 'You are the logger'
+    inspector = (sanfu.spy logger) 'You are the logger'
     expect (inspector sumOne) 1 .to.equal 2

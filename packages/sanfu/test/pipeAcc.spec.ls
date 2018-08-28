@@ -21,7 +21,7 @@ describe 'Sanfu pipeAcc', ->
         expect c .to.equal 3
         4
 
-      show = (sanfu.inspect console.log) 'F2 receives...'
+      show = (sanfu.spy console.log) 'F2 receives...'
       pipe = sanfu.pipeAcc [f1, (show f2), f3]
 
       expect pipe .to.be.a.function!

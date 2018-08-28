@@ -28,6 +28,6 @@ spy = (logger,label, fn, x) ->
     apply logger, [label, x]
     fn x
 
-exporting = def \sanfu/spy {} [$.AnyFunction, $.String, $.AnyFunction, $.Any, $.Any] inspect 
+exporting = def \sanfu/spy {} [$.AnyFunction, $.String, $.AnyFunction, $.Any, $.Any] spy 
 
 export spy: exporting
