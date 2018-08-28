@@ -1,6 +1,11 @@
 "/**
+* Functional combinators
+* @namespace Combinators
+*/
+/**
 * @module Sanfu
-*/"
+*/
+"
 
 export \./indexBy : indexBy
 export \./push : push
