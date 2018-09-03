@@ -19,3 +19,4 @@ export \./pipeAcc : {pipeAcc}
 export \./select : {select: definition }
 export \./takeAction : {takeAction: definition }
 export \./array2object : {array2object: definition }
+export \./types : {makeTypes}

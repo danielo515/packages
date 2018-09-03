@@ -10,9 +10,4 @@
     "--no-package-lock",
     "--verbose"
   ]
-  , "command": {
-    "publish": {
-      "ignore":"fucc-script"
-    }
-  }
 }
