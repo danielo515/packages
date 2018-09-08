@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.2.0"></a>
+# [3.2.0](https://github.com/danielo515/packages/compare/sanfu@3.1.2...sanfu@3.2.0) (2018-09-08)
+
+
+### Features
+
+* **Array:** added chunks utility function ([9d5b980](https://github.com/danielo515/packages/commit/9d5b980))
+
+
+
+
 <a name="3.1.2"></a>
 ## [3.1.2](https://github.com/danielo515/packages/compare/sanfu@3.1.1...sanfu@3.1.2) (2018-09-03)
 
